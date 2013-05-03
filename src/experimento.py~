@@ -1,0 +1,21 @@
+# experimento
+import timeit
+from math import *
+    
+tiempo1=timeit.Timer('sin(10+3)','from math import sin')
+print tiempo1.timeit(10000000)
+	
+tiempo2=timeit.Timer('sin(10)*cos(3)+sin(3)*cos(10)', 'from math import sin,cos')
+print tiempo2.timeit(10000000)
+
+if tiempo2.timeit(10000000)>tiempo1.timeit(10000000):
+  porcentaje=tiempo1.timeit(10000000)*100/tiempo2.timeit(10000000)
+  print "la diferencia es", porcentaje, "%"
+else:
+  porcentaje=tiempo2.timeit(10000000)*100/tiempo1.timeit(10000000)
+  print "la diferencia es", porcentaje, "%"
+	
+
+
+
+
